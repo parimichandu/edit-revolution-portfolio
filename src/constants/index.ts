@@ -1,0 +1,45 @@
+export const SITE_CONFIG = {
+  name: "Chandu",
+  brandName: "Edit Revolution",
+  fullName: "Chandu",
+  professionalTitle: "Freelance Video Editor & AI Video Creator",
+  tagline: "Your Vision. My Editing. Extraordinary Results.",
+  heroHeadline: "Your Vision. My Editing. Extraordinary Results.",
+  heroDescription: "I transform raw footage into engaging reels, cinematic promotional videos, and creative AI-powered content that helps brands and creators stand out.",
+  contactHeadline: "Let's Create Something Extraordinary.",
+  contactDescription: "Have a project in mind? Contact Edit Revolution to discuss your next video.",
+  footerSummary: "Edit Revolution | Video Editing • AI Video Creation • Motion Graphics",
+  profilePhoto: "/images/chandu-profile.jpg",
+  location: "Vasili Village, Atmakur Mandal, Nellore District, Andhra Pradesh, India",
+  experienceYears: "2 Years",
+  experienceSummary: "2 Years in Video Editing and AI Video Creation",
+  languages: ["Telugu", "English"],
+  basePrice: "₹400",
+  basePriceUnit: "per reel",
+  status: "Open for New Projects",
+};
+
+export const CONTACTS = {
+  whatsapp: "+91 78423 94026",
+  whatsappRaw: "917842394026",
+  whatsappLink: "https://wa.me/917842394026",
+  instagram: "https://www.instagram.com/edit_revolution1/",
+  instagramHandle: "@edit_revolution1",
+  email: "parmichandu2006@gmail.com",
+  emailDisplay: "parmichandu2006@gmail.com",
+  location: "Vasili Village, Atmakur Mandal, Nellore District, Andhra Pradesh, India",
+  telegram: "https://t.me/edit_revolution1",
+  youtube: "https://youtube.com/@edit_revolution1",
+  portfolioShowreelUrl: "/videos/promotion-reel.mp4",
+};
+
+export const NAVIGATION_LINKS = [
+  { name: "Work", href: "#work" },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Services", href: "#services" },
+  { name: "Process", href: "#process" },
+  { name: "Skills", href: "#skills" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "Contact", href: "#contact" },
+];

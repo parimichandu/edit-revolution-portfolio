@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.cert
+
+# Private financial records & SQLite databases
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/*.db-journal
+data/*.sqlite
+data/*.sqlite3
+data/financial.db*
+
+# Temporary files & scratch directories
+scratch/
+.tempmediaStorage/
+*.tmp
+*.temp
+
+# Large video assets (kept locally, excluded from git commits)
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.avi
+public/videos/*.mkv
+public/videos/*.webm
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS & Editor generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
