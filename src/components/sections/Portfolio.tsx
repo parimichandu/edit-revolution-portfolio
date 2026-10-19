@@ -133,7 +133,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                       loop
                       muted
                       playsInline
-                      preload="auto"
+                      preload="metadata"
+                      onError={() => {
+                        // Silent fallback - poster/placeholder remains visible
+                      }}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (

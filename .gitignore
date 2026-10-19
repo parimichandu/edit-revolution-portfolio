@@ -30,20 +30,17 @@ data/financial.db*
 # Temporary files & scratch directories
 scratch/
 .tempmediaStorage/
+videos_original_masters/
 *.tmp
 *.temp
 
-# Large video assets (kept locally, excluded from git commits)
-public/videos/*.mp4
-public/videos/*.mov
-public/videos/*.avi
-public/videos/*.mkv
-public/videos/*.webm
-*.mp4
+# Raw uncompressed video formats (kept locally, web mp4s in public/videos/ are tracked)
+videos_original_masters/
 *.mov
 *.avi
 *.mkv
 *.wmv
+*.webm
 
 # Logs
 logs/

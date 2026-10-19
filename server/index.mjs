@@ -68,12 +68,45 @@ const server = http.createServer(async (req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    res.setHeader('Content-Type', contentType);
-    // Cache static hashed assets for 1 year, index.html must not be cached
-    if (parsedUrl.pathname.includes('/assets/')) {
+    // HTTP Byte-Range support for HTML5 video seeking & streaming
+    if (ext === '.mp4') {
+      res.setHeader('Accept-Ranges', 'bytes');
+      res.setHeader('Content-Type', 'video/mp4');
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+
+      const range = req.headers.range;
+      if (range) {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
+
+        if (start >= stats.size || end >= stats.size) {
+          res.statusCode = 416;
+          res.setHeader('Content-Range', `bytes */${stats.size}`);
+          return res.end();
+        }
+
+        const chunksize = end - start + 1;
+        res.writeHead(206, {
+          'Content-Range': `bytes ${start}-${end}/${stats.size}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': 'video/mp4',
+        });
+
+        const stream = fs.createReadStream(filePath, { start, end });
+        return stream.pipe(res);
+      }
+
+      res.setHeader('Content-Length', stats.size);
     } else {
-      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Content-Type', contentType);
+      // Cache static hashed assets for 1 year, index.html must not be cached
+      if (parsedUrl.pathname.includes('/assets/')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else {
+        res.setHeader('Cache-Control', 'no-cache');
+      }
     }
 
     const stream = fs.createReadStream(filePath);
